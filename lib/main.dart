@@ -110,6 +110,8 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
 
+    var _currentIndex = 0;
+
     return new MaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
@@ -127,9 +129,51 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
             titleSection,
             buttonSection,
             textSection,
-          ],
+          ]
         ),
+        bottomNavigationBar: CustomBottom()
       ),
     );
   }
+}
+
+class CustomBottom extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _CustomBottomState();
+}
+
+class _CustomBottomState extends State<CustomBottom> {
+  var _currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) => BottomNavigationBar(
+    onTap: (index) {
+       setState(() {
+          _currentIndex = index;
+       });
+    },
+    currentIndex: _currentIndex,
+    items: [
+      BottomNavigationBarItem(
+          title: Text('1'),
+          backgroundColor: Colors.amber,
+          icon: Icon(Icons.airplanemode_active)
+      ),
+      BottomNavigationBarItem(
+          title: Text('2'),
+          backgroundColor: Colors.brown,
+          icon: Icon(Icons.airplanemode_active)
+      ),
+      BottomNavigationBarItem(
+          title: Text('3'),
+          backgroundColor: Colors.pink,
+          icon: Icon(Icons.airplanemode_active)
+      ),
+      BottomNavigationBarItem(
+          title: Text('4'),
+          backgroundColor: Colors.green,
+          icon: Icon(Icons.airplanemode_active)
+      )
+    ],
+  );
 }
