@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(bottom: 5.0),
                     child: TextField(
+                      autofocus: true,
                       decoration: new InputDecoration(
                           labelText: 'Send a message...'),
                       controller: _controller,
@@ -110,13 +111,18 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
 
-    var _currentIndex = 0;
-
     return new MaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.favorite),
+          onPressed: () {
+
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         appBar: AppBar(
-          title: Text('Top Lakes'),
+          title: Text('Top Lakes')
         ),
         body: ListView(
           children: [
